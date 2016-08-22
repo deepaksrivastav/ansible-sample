@@ -1,5 +1,4 @@
 - hosts: localhost
-  connection: local
-  tasks
-    - name: Stop Docker daemon
-      shell: touch /home/rancher/testfilebyansible
+  tasks:
+    - name: "Sample file"
+      shell: touch /home/rancher/testfile
