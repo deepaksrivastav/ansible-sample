@@ -1,4 +1,4 @@
 - hosts: localhost
   tasks:
     - name: "Start Rancher Server"
-      command: docker run -d --restart=always -p 8080:8080 rancher/server
+      command: "docker run -d --restart=always -p 8080:8080 rancher/server"
