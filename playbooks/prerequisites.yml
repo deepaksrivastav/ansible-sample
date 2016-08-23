@@ -1,0 +1,4 @@
+- hosts: rancher
+  tasks:
+    - name: "Install pre-requisites"
+      yum: name=docker state=latest
