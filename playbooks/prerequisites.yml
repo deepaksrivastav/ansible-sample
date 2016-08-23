@@ -3,3 +3,10 @@
     - name: "Install pre-requisites"
       yum: name=docker state=latest
       become: true
+    - name: "Enabling docker service"
+      systemd:
+        name: docker
+        enabled: yes
+        masked: no
+    - name: "Starting docker service"
+      systemd: state=started name=docker
