@@ -6,5 +6,5 @@
       become: true
   handlers:
     - name: "Starting docker service"
-      systemd: state=started name=docker
+      service: state=started name=docker
       become: true
