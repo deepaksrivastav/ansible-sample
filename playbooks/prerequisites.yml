@@ -5,7 +5,5 @@
       yum: name=docker state=latest
       become: true
   handlers:
-    - name: "Enabling docker service"
-      systemd: name=httpd enabled=yes masked=no
     - name: "Starting docker service"
       systemd: state=started name=docker
