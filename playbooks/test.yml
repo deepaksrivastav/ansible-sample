@@ -11,21 +11,9 @@
         service: state=started name=docker
         become: true
       - name: "Creating Mysql data container"
-        docker:
-          name: mydata
-          image: mysql
-          state: present
-          volumes:
-          - /var/lib/mysql
+        command: "docker run --name kdi-mysql-data -e MYSQL_ROOT_PASSWORD=kditest -e MYSQL_DATABASE=kdi mysql echo hello"
+        become: true
       - name: "Starting Mysql container"
-        docker:
-          name: mysql
-          image: mysql
-          state: started
-          expose:
-          - 3306
-          volumes_from:
-          - mydata
-          env:
-            MYSQL_ROOT_PASSWORD: ssssh
+        command: "docker run --name kdi-mysql -e MYSQL_DATABASE=kdi -e MYSQL_ROOT_PASSWORD=testit -p 3306:3306 -d --volumes-from=kdi-mysql-data mysql"
+        become: true
 
