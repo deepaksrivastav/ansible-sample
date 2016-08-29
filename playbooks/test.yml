@@ -1,0 +1,6 @@
+---
+- hosts: saas_backend
+  tasks:
+      - name: "Install pre-requisites"
+        yum: name=docker state=latest
+        become: true
