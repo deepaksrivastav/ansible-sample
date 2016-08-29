@@ -10,3 +10,22 @@
       - name: "Starting docker service"
         service: state=started name=docker
         become: true
+      - name: "Creating Mysql data container"
+        docker:
+          name: mydata
+          image: mysql
+          state: present
+          volumes:
+          - /var/lib/mysql
+      - name: "Starting Mysql container"
+        docker:
+          name: mysql
+          image: mysql
+          state: started
+          expose:
+          - 3306
+          volumes_from:
+          - mydata
+          env:
+            MYSQL_ROOT_PASSWORD: ssssh
+
