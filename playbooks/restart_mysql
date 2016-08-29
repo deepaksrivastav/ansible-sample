@@ -1,0 +1,9 @@
+---
+- hosts: saas_backend
+  tasks:
+      - name: "Stopping Mysql container"
+        command: "docker stop kdi-mysql"
+        become: true
+      - name: "Starting Mysql container"
+        command: "docker start kdi-mysql"
+        become: true
