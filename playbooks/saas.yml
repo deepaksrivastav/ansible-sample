@@ -2,6 +2,6 @@
 ---
 - hosts: saas
   tasks:
-    - name: "Install docker-compose"
-      yum: name=docker-compose state=latest
+    - name: "Install vim"
+      yum: name=vim state=latest
       become: true
