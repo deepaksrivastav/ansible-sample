@@ -1,0 +1,7 @@
+
+---
+- hosts: saas
+  tasks:
+    - name: "Install docker-compose"
+      yum: name=docker-compose state=latest
+become: true
